@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Grocery {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -19,6 +19,21 @@ public class Grocery {
 
 	public Grocery() {
 		super();
+	}
+
+	public Grocery(String item, String size) {
+		super();
+		this.item = item;
+		this.size = size;
+	}
+
+	public Grocery(String item, String description, int amount, String size, String store) {
+		super();
+		this.item = item;
+		this.description = description;
+		this.amount = amount;
+		this.size = size;
+		this.store = store;
 	}
 
 	public String getItem() {
