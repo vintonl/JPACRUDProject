@@ -1,7 +1,6 @@
 package com.skilldistilley.jpagrocerylist.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +18,7 @@ class GroceryListTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Grocery gl;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("GroceryList");
@@ -34,7 +33,7 @@ class GroceryListTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		gl = em.find(Grocery.class, 1);
-				
+
 	}
 
 	@AfterEach
@@ -44,10 +43,39 @@ class GroceryListTest {
 	}
 
 	@Test
-	@DisplayName ("Test connection")
+	@DisplayName("Test id")
 	void test() {
 		assertEquals(1, gl.getId());
+	}
+
+	@Test
+	@DisplayName("Test item")
+	void test1() {
 		assertEquals("bananas", gl.getItem());
+	}
+
+	@Test
+	@DisplayName("Test Description")
+	void test2() {
+		assertEquals("yellow ones", gl.getDescription());
+	}
+
+	@Test
+	@DisplayName("Test getAmount")
+	void test3() {
+		assertEquals(5, gl.getAmount());
+	}
+
+	@Test
+	@DisplayName("Test getSize")
+	void test4() {
+		assertEquals("large", gl.getSize());
+	}
+
+	@Test
+	@DisplayName("Test getStore")
+	void test5() {
+		assertEquals("Costco", gl.getStore());
 	}
 
 }
