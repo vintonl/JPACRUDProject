@@ -18,7 +18,7 @@ class GroceryListTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private GroceryList gl;
+	private Grocery gl;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,7 +33,7 @@ class GroceryListTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		gl = new GroceryList();
+		gl = em.find(Grocery.class, 1);
 				
 	}
 
@@ -46,7 +46,7 @@ class GroceryListTest {
 	@Test
 	@DisplayName ("Test connection")
 	void test() {
-		assertNotNull(gl.getId());
+		assertEquals(1, gl.getId());
 		assertEquals("bananas", gl.getItem());
 	}
 

@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class GroceryList {
+public class Grocery {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class GroceryList {
 	private String item;
 	private String description;
 
-	public GroceryList() {
+	public Grocery() {
 		super();
 	}
 
@@ -56,7 +56,7 @@ public class GroceryList {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GroceryList other = (GroceryList) obj;
+		Grocery other = (Grocery) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;

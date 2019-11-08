@@ -9,7 +9,7 @@
     </provider>
 
 		<!-- Class Definitions -->
-		<class>com.skilldistilley.jpagrocerylist.entities.GroceryList</class>
+		<class>com.skilldistilley.jpagrocerylist.entities.Grocery</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
