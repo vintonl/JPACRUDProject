@@ -10,8 +10,8 @@
 </head>
 
 <body>
-
-	<form action="getGroceries.do" method="GET">
+Test
+<%-- 	<form action="getGroceries.do" method="GET">
 		Enter item to find: <input type="text" name="find" /> <input type="submit"
 			value="Find Item" />
 	</form>
@@ -26,6 +26,6 @@
 			</li>
 			<br>
 		</c:forEach>
-	</ul>
+	</ul> --%>
 </body>
 </html>
