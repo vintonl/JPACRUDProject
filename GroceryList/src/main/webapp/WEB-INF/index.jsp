@@ -16,6 +16,7 @@
 			placeholder="banana or Costco" /> <input type="submit"
 			value="Find Item" />
 	</form>
+	<a href="create.do">Add Item</a>
 	<br>
 	<div class="container">
 		<h2>Grocery List:</h2>

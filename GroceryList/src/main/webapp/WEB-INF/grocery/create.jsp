@@ -7,18 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Update Item</title>
+<title>Add Item</title>
 </head>
 <body>
-	<h1>Edit an item:</h1>
+	<h1>Add an item:</h1>
 	<div class="container">
-		<c:out value="${itemId }" />
-		<c:if test="${not empty grocery }">
 
-			<form:form action="updateItemFields.do" method="POST"
-				modelAttribute="grocery">
-				<h3>Item: ${grocery.item}</h3>
-				<br />
+			<form:form action="createItem.do" method="POST" modelAttribute="grocery">
 
 				<form:label path="item">Item:</form:label>
 				<form:input path="item" />
@@ -42,19 +37,17 @@
 
 				<form:label path="store">Store to by item at: </form:label>
 				<form:select path="store">
-					<form:option value="${grocery.store}">${grocery.store}</form:option>
 					<form:option value="Costco">Costco</form:option>
-					<form:option value="Trader-Joe's">Trader-Joe's</form:option>
 					<form:option value="King Soopers">King Soopers</form:option>
 					<form:option value="Sprouts">Sprouts</form:option>
+					<form:option value="Trader-Joe's">Trader-Joe's</form:option>
 					<form:option value="Whole Foods">Whole Foods</form:option>
 				</form:select>
 				<br>
 
-				<button type="submit" name="itemId" value="${grocery.id}">Update
+				<button type="submit" name="itemId" value="${grocery.id}">Add
 					Item</button>
 			</form:form>
-		</c:if>
 		<br />
 	</div>
 </body>

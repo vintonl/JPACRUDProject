@@ -82,5 +82,22 @@ public class GroceryController {
 		mv.setViewName("index.do");
 		return mv;
 	}
+	
+	@RequestMapping(path = "create.do", method = RequestMethod.GET)
+	public ModelAndView createForm(@Valid Grocery grocery) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/grocery/create.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "createItem.do", method = RequestMethod.POST)
+	public ModelAndView newFilm(@Valid Grocery grocery) {
+		ModelAndView mv = new ModelAndView();
+		Grocery newGrocery = groceryDao.create(grocery);
+		
+		mv.addObject("grocery", newGrocery);
+		mv.setViewName("index.do");
+		return mv;
+	}
 
 }
