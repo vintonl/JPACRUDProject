@@ -12,7 +12,7 @@
 <body>
 
 	<form action="getGroceries.do" method="GET">
-		Enter item to find: <input type="text" name="find" /> <input
+		Enter item: <input type="text" name="find" /> <input
 			type="submit" value="Find Item" />
 	</form>
 	<br>

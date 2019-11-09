@@ -27,7 +27,7 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 
 		String query = "select grocery from Grocery grocery where item like :searchItem";
 
-		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("searchItem", item)
+		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("searchItem", "%" + item + "%")
 				.getResultList();
 
 		return itemsFound;
