@@ -26,6 +26,15 @@
 					<form action="getGroceries.do" method="GET">
 						<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
 					</form></li>
+				
+				<form action="getItemFields.do" method="GET">
+					<button type="submit" name="itemId" value="${grocery.id}">Update
+						Item</button>
+				</form>
+				<%-- <form action="deleteFilm.do" method="POST">
+					<button type="submit" name="filmID" value="${film.filmId}">Delete
+						Item</button>
+				</form> --%>
 				<br>
 			</c:forEach>
 		</ul>
