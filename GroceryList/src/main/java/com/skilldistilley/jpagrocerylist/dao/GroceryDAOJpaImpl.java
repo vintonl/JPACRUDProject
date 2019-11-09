@@ -52,12 +52,7 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 
 	@Override
 	public Grocery create(Grocery grocery) {
-//		em.getTransaction().begin();
-
 		em.persist(grocery);
-
-//		em.flush();
-//		em.getTransaction().commit();
 
 		return grocery;
 	}
