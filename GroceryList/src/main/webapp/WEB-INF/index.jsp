@@ -7,46 +7,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Grocery List</title>
-
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
 <link rel="stylesheet" href="/CSS/main.css">
-
 </head>
 
 <body>
-
-	<form action="getGroceries.do" method="GET">
-		Search List: <input type="text" name="find"
-			placeholder="banana or Costco" /> <input type="submit"
-			value="Find Item" />
-	</form>
-	<a href="create.do">Add Item</a>
-	<br>
 	<div class="container">
 		<h2>Grocery List:</h2>
+		<form action="getGroceries.do" method="GET">
+			Search List: <input type="text" name="find"
+				placeholder="banana or Costco" /> <input type="submit"
+				value="Find Item" class="btn btn-light" />
+		</form>
+		<a href="create.do">Add Item</a>
 
-		<ol>
+		<table>
 			<c:forEach var="grocery" items="${groceries}">
-				<li><c:if test="${empty groceries }">No items on the list found</c:if>
-					<form action="getGroceries.do" method="GET">
-						<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
-					</form></li>
+				<tr>
+					<c:if test="${empty groceries }">No items on the list found</c:if>
+					<td><form action="getGroceries.do" method="GET">
+							<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
+						</form></td>
 
-				<form action="getItemFields.do" method="GET">
-					<button type="submit" name="itemId" value="${grocery.id}">Update
-						Item</button>
-				</form>
-				<form action="deleteItem.do" method="POST">
-					<button type="submit" name="itemId" value="${grocery.id}">Delete
-						Item</button>
-				</form>
+					<td><form action="getItemFields.do" method="GET">
+							<button type="submit" class="btn btn-light"
+								name="itemId" value="${grocery.id}">Update Item</button>
+						</form></td>
+
+					<td><form action="deleteItem.do" method="POST">
+							<button type="submit" class="btn btn-light"
+								name="itemId" value="${grocery.id}">Delete Item</button>
+						</form></td>
+				</tr>
 				<br>
 			</c:forEach>
-		</ol>
+		</table>
+
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

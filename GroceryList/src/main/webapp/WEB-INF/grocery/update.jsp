@@ -58,7 +58,7 @@
 				</form:select>
 				<br>
 
-				<button type="submit" name="itemId" value="${grocery.id}">Update
+				<button type="submit" name="itemId" value="${grocery.id}" class="btn btn-light">Update
 					Item</button>
 			</form:form>
 		</c:if>

@@ -55,7 +55,7 @@
 			</form:select>
 			<br>
 
-			<button type="submit" name="itemId" value="${grocery.id}">Add
+			<button type="submit" name="itemId" value="${grocery.id}" class="btn btn-light">Add
 				Item</button>
 		</form:form>
 		<br /> <a href="index.do">Cancel and/or Return Home</a>

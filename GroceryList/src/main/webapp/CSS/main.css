@@ -1,2 +1,24 @@
 @charset "UTF-8";
 
+body {
+	background-color: #0066ff;
+}
+
+h1, h2, h3, h4, h5, form , a{
+	color: white;
+}
+
+.footer {
+	max-width: 30px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table, th, td {
+	border: 1px solid white;
+	border-collapse: collapse;
+	margin-left: 10%;
+	margin-right: auto;
+	margin-top: auto;
+}
