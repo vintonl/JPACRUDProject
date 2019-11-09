@@ -10,22 +10,22 @@
 </head>
 
 <body>
-Test
-<%-- 	<form action="getGroceries.do" method="GET">
-		Enter item to find: <input type="text" name="find" /> <input type="submit"
-			value="Find Item" />
+
+	<form action="getGroceries.do" method="GET">
+		Enter item to find: <input type="text" name="find" /> <input
+			type="submit" value="Find Item" />
 	</form>
 	<br>
-	<h2>Items on the list:</h2>
+	<h2>Grocery List:</h2>
 	<ul>
 		<c:forEach var="grocery" items="${groceries}">
 			<li>
 				<form action="getGroceries.do" method="GET">
-					<a href="getGroceries.do?find=${grocery.title }">${grocery.title}</a>
+					<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
 				</form>
 			</li>
 			<br>
 		</c:forEach>
-	</ul> --%>
+	</ul>
 </body>
 </html>

@@ -11,7 +11,7 @@
 
 	<div>
 		<c:forEach var="grocery" items="${groceries}">
-			<h5>${grocery.title}</h5>
+			<h2>${grocery.item}</h2>
 			<p>Description: ${grocery.description}</p>
 			<p>Amount to buy: ${grocery.amount}</p>
 			<p>Store that sells item: ${grocery.store}</p>
