@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Grocery List</title>
+<title>The Grocery List</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -17,7 +17,7 @@
 
 <body>
 	<div class="container">
-		<h2>Grocery List:</h2>
+		<h2>The Grocery List:</h2>
 		<form action="getGroceries.do" method="GET">
 			Search List: <input type="text" name="find"
 				placeholder="banana or Costco" /> <input type="submit"
