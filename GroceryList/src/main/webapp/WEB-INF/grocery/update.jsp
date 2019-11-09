@@ -18,8 +18,8 @@
 
 </head>
 <body>
-	<h1>Edit an item</h1>
 	<div class="container">
+	<h1>Edit an item</h1>
 		<c:out value="${itemId }" />
 		<c:if test="${not empty grocery }">
 
@@ -62,7 +62,7 @@
 					Item</button>
 			</form:form>
 		</c:if>
-		<br /> <a href="index.do">Cancel and/or Return Home</a>
+		<br /> <a href="index.do" class="badge badge-light">Cancel and/or Return Home</a>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

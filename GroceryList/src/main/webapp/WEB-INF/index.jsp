@@ -23,8 +23,7 @@
 				placeholder="banana or Costco" /> <input type="submit"
 				value="Find Item" class="btn btn-light" />
 		</form>
-		<a href="create.do">Add Item</a>
-
+		<a href="create.do" class="badge badge-light">Add Item</a>
 		<table>
 			<c:forEach var="grocery" items="${groceries}">
 				<tr>
@@ -46,7 +45,6 @@
 				<br>
 			</c:forEach>
 		</table>
-
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

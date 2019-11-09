@@ -18,9 +18,8 @@
 
 </head>
 <body>
-	<h1>Add an item:</h1>
 	<div class="container">
-
+	<h1>Add an item:</h1>
 		<form:form action="createItem.do" method="POST"
 			modelAttribute="grocery">
 
@@ -58,7 +57,7 @@
 			<button type="submit" name="itemId" value="${grocery.id}" class="btn btn-light">Add
 				Item</button>
 		</form:form>
-		<br /> <a href="index.do">Cancel and/or Return Home</a>
+		<br /> <a href="index.do" class="badge badge-light">Cancel and/or Return Home</a>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
