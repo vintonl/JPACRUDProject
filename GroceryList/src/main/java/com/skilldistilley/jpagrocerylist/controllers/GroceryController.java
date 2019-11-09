@@ -65,5 +65,22 @@ public class GroceryController {
 		mv.setViewName("index.do");
 		return mv;
 	}
+	
+	@RequestMapping(path = "deleteItem.do", params = "itemId", method = RequestMethod.POST)
+	public ModelAndView deleteFilmFromSearch(@RequestParam("itemId") int itemId) {
+		boolean delete = groceryDao.delete(itemId);
+		
+		if (!delete) {
+			System.out.println("************************************");
+			System.out.println("Item not deleted.");
+			System.out.println("************************************");
+		}
+
+		ModelAndView mv = new ModelAndView();
+		Grocery foundGrocery = groceryDao.findById(itemId);
+		mv.addObject("grocery", foundGrocery);
+		mv.setViewName("index.do");
+		return mv;
+	}
 
 }

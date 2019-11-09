@@ -31,10 +31,10 @@
 					<button type="submit" name="itemId" value="${grocery.id}">Update
 						Item</button>
 				</form>
-				<%-- <form action="deleteFilm.do" method="POST">
-					<button type="submit" name="filmID" value="${film.filmId}">Delete
+				<form action="deleteItem.do" method="POST">
+					<button type="submit" name="itemId" value="${grocery.id}">Delete
 						Item</button>
-				</form> --%>
+				</form>
 				<br>
 			</c:forEach>
 		</ul>

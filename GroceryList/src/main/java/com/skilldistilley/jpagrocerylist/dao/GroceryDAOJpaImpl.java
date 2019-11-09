@@ -77,19 +77,13 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 
 	@Override
 	public boolean delete(int id) {
-		boolean success = false;
-		em.getTransaction().begin();
-
 		Grocery deleteGrocery = em.find(Grocery.class, id);
 
 		if (deleteGrocery != null) {
 			em.remove(deleteGrocery);
 		}
 
-		success = !em.contains(deleteGrocery);
-
-		em.flush();
-		em.getTransaction().commit();
+		boolean success = !em.contains(deleteGrocery);
 
 		return success;
 	}
