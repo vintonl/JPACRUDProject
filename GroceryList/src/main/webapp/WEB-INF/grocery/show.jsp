@@ -5,17 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Item Details</title>
+<title>Search Result(s)</title>
 </head>
 <body>
 
-	<div>
+	<div class="container">
+		<h2>Search Result(s):</h2>
+
 		<c:forEach var="grocery" items="${groceries}">
 			<h2>${grocery.item}</h2>
 			<p>Description: ${grocery.description}</p>
 			<p>Amount to buy: ${grocery.amount}</p>
-			<p>Store that sells item: ${grocery.store}</p>
-			<p>Size of item: ${grocery.size}</p>
+			<p>Size: ${grocery.size}</p>
+			<p>Buy at: ${grocery.store}</p>
 			<form action="getItemFields.do" method="GET">
 				<button type="submit" name="itemId" value="${grocery.id}">Update
 					Item</button>
@@ -24,8 +26,9 @@
 				<button type="submit" name="itemId" value="${grocery.id}">Delete
 					Item</button>
 			</form>
+			<hr>
 		</c:forEach>
 	</div>
-
+	<a href="index.do">Return Home</a>
 </body>
 </html>

@@ -36,7 +36,6 @@
 					<button type="submit" name="itemId" value="${grocery.id}">Delete
 						Item</button>
 				</form>
-				<br>
 			</c:forEach>
 		</ul>
 	</div>

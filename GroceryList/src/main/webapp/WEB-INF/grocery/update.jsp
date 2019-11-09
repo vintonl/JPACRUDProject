@@ -10,7 +10,7 @@
 <title>Update Item</title>
 </head>
 <body>
-	<h1>Edit an item:</h1>
+	<h1>Edit an item</h1>
 	<div class="container">
 		<c:out value="${itemId }" />
 		<c:if test="${not empty grocery }">
@@ -18,9 +18,8 @@
 			<form:form action="updateItemFields.do" method="POST"
 				modelAttribute="grocery">
 				<h3>Item: ${grocery.item}</h3>
-				<br />
 
-				<form:label path="item">Item:</form:label>
+				<form:label path="item">Item name:</form:label>
 				<form:input path="item" />
 				<form:errors path="item" />
 				<br />
@@ -31,7 +30,7 @@
 				<br />
 
 				<form:label path="amount">Amount:</form:label>
-				<form:input path="amount" />
+				<form:input path="amount" type="number" />
 				<form:errors path="amount" />
 				<br />
 
@@ -40,15 +39,16 @@
 				<form:errors path="size" />
 				<br />
 
-				<form:label path="store">Store to by item at: </form:label>
-				<form:select path="store">
-					<form:option value="${grocery.store}">${grocery.store}</form:option>
-					<form:option value="Costco">Costco</form:option>
-					<form:option value="Trader-Joe's">Trader-Joe's</form:option>
-					<form:option value="King Soopers">King Soopers</form:option>
-					<form:option value="Sprouts">Sprouts</form:option>
-					<form:option value="Whole Foods">Whole Foods</form:option>
-				</form:select>
+				<form:label path="store">Buy at: </form:label>
+				<input type="text" list="stores" value="${grocery.store}" />
+				<datalist id="stores">
+					<option>Costco</option>
+					<option>King Soopers</option>
+					<option>Sprouts</option>
+					<option>Trader-Joe's</option>
+					<option>Whole Foods</option>
+				</datalist>
+				<form:errors path="store" />
 				<br>
 
 				<button type="submit" name="itemId" value="${grocery.id}">Update
@@ -56,6 +56,7 @@
 			</form:form>
 		</c:if>
 		<br />
+		<a href="index.do">Cancel and/or Return Home</a>
 	</div>
 </body>
 </html>
