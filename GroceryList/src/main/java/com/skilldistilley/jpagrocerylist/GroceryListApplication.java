@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EntityScan("com.skilldistilley.jpagrocerylist")
-//@ComponentScan("com.skilldistilley.jpagrocerylist")
 public class GroceryListApplication {
 
 	public static void main(String[] args) {
