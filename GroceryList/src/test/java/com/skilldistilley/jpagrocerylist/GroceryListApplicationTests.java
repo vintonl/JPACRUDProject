@@ -21,7 +21,7 @@ class GroceryListApplicationTests {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		
+
 	}
 
 	@AfterEach
@@ -34,7 +34,7 @@ class GroceryListApplicationTests {
 	void test() {
 		fail("Not yet implemented");
 	}
-	
+
 	@Test
 	@DisplayName("Test findById")
 	void test1() {
@@ -42,4 +42,3 @@ class GroceryListApplicationTests {
 	}
 
 }
-
