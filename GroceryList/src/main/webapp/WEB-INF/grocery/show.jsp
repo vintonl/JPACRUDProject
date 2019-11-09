@@ -12,22 +12,29 @@
 	<div class="container">
 		<h2>Search Result(s):</h2>
 
-		<c:forEach var="grocery" items="${groceries}">
-			<h2>${grocery.item}</h2>
-			<p>Description: ${grocery.description}</p>
-			<p>Amount to buy: ${grocery.amount}</p>
-			<p>Size: ${grocery.size}</p>
-			<p>Buy at: ${grocery.store}</p>
-			<form action="getItemFields.do" method="GET">
-				<button type="submit" name="itemId" value="${grocery.id}">Update
-					Item</button>
-			</form>
-			<form action="deleteItem.do" method="POST">
-				<button type="submit" name="itemId" value="${grocery.id}">Delete
-					Item</button>
-			</form>
-			<hr>
-		</c:forEach>
+		<ol>
+			<c:forEach var="grocery" items="${groceries}">
+				<li>
+					<h4>${grocery.item}</h4>
+				</li>
+				<ul>
+					<li>Description: ${grocery.description}</li>
+					<li>Amount: ${grocery.amount}</li>
+					<li>Size: ${grocery.size}</li>
+					<li>Buy at: ${grocery.store}</li>
+				</ul>
+				<br>
+				<form action="getItemFields.do" method="GET">
+					<button type="submit" name="itemId" value="${grocery.id}">Update
+						Item</button>
+				</form>
+				<form action="deleteItem.do" method="POST">
+					<button type="submit" name="itemId" value="${grocery.id}">Delete
+						Item</button>
+				</form>
+				<br>
+			</c:forEach>
+		</ol>
 	</div>
 	<a href="index.do">Return Home</a>
 </body>

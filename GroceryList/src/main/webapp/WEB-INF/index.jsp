@@ -21,7 +21,7 @@
 	<div class="container">
 		<h2>Grocery List:</h2>
 
-		<ul>
+		<ol>
 			<c:forEach var="grocery" items="${groceries}">
 				<li><c:if test="${empty groceries }">No items on the list found</c:if>
 					<form action="getGroceries.do" method="GET">
@@ -38,7 +38,7 @@
 				</form>
 				<br>
 			</c:forEach>
-		</ul>
+		</ol>
 	</div>
 </body>
 </html>

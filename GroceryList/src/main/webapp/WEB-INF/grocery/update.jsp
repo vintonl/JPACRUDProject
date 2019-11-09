@@ -39,16 +39,15 @@
 				<form:errors path="size" />
 				<br />
 
-				<form:label path="store">Buy at: </form:label>
-				<input type="text" list="stores" value="${grocery.store}" />
-				<datalist id="stores">
-					<option>Costco</option>
-					<option>King Soopers</option>
-					<option>Sprouts</option>
-					<option>Trader-Joe's</option>
-					<option>Whole Foods</option>
-				</datalist>
-				<form:errors path="store" />
+				<form:label path="store">Store to by item at: </form:label>
+				<form:select path="store">
+					<form:option value="Costco">Costco</form:option>
+					<form:option value="Trader-Joe's">Trader-Joe's</form:option>
+					<form:option value="King Soopers">King Soopers</form:option>
+					<form:option value="Sprouts">Sprouts</form:option>
+					<form:option value="Whole Foods">Whole Foods</form:option>
+					<form:option value="Not listed">Another store not listed</form:option>
+				</form:select>
 				<br>
 
 				<button type="submit" name="itemId" value="${grocery.id}">Update
