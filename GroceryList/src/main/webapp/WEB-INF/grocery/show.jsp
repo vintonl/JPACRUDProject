@@ -16,6 +16,14 @@
 			<p>Amount to buy: ${grocery.amount}</p>
 			<p>Store that sells item: ${grocery.store}</p>
 			<p>Size of item: ${grocery.size}</p>
+			<form action="getItemFields.do" method="GET">
+				<button type="submit" name="itemId" value="${grocery.id}">Update
+					Item</button>
+			</form>
+			<form action="deleteItem.do" method="POST">
+				<button type="submit" name="itemId" value="${grocery.id}">Delete
+					Item</button>
+			</form>
 		</c:forEach>
 	</div>
 
