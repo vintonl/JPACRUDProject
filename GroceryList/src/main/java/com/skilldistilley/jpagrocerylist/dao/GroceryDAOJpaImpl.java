@@ -43,20 +43,19 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 		return itemsFound;
 	}
 
-	
 	@Override
 	public List<Grocery> findAll() {
 		String query = "select grocery from Grocery grocery";
 
-		List<Grocery> groceryList = em.createQuery(query, Grocery.class).getResultList();
-
-		return groceryList;
+		return em.createQuery(query, Grocery.class).getResultList();
 	}
 
 	@Override
 	public Grocery create(Grocery grocery) {
 		em.getTransaction().begin();
+
 		em.persist(grocery);
+
 		em.flush();
 		em.getTransaction().commit();
 
@@ -83,20 +82,21 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 
 	@Override
 	public boolean delete(int id) {
+		boolean success = false;
+		em.getTransaction().begin();
+
 		Grocery deleteGrocery = em.find(Grocery.class, id);
 
-		em.getTransaction().begin();
-		em.remove(deleteGrocery);
+		if (deleteGrocery != null) {
+			em.remove(deleteGrocery);
+		}
+
+		success = !em.contains(deleteGrocery);
+
 		em.flush();
 		em.getTransaction().commit();
 
-		deleteGrocery = findById(id);
-
-		if (deleteGrocery != null) {
-			return false;
-		}
-
-		return true;
+		return success;
 	}
 
 }
