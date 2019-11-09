@@ -7,7 +7,7 @@ import com.skilldistilley.jpagrocerylist.entities.Grocery;
 public interface GroceryDAO {
 	Grocery findById(int id);
 
-	List<Grocery> findByItem(String item);
+	List<Grocery> findByWordSearch(String item);
 
 	List<Grocery> findByStrore(String store);
 

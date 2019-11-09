@@ -31,9 +31,7 @@ public class GroceryController {
 	public ModelAndView getFilm(@RequestParam("find") String find) {
 		ModelAndView mv = new ModelAndView();
 
-		List<Grocery> groceries = groceryDao.findByItem(find);
-		// film is unmanaged after it is outside of the transaction that exists in the
-		// DAO
+		List<Grocery> groceries = groceryDao.findByWordSearch(find);
 
 		mv.addObject("groceries", groceries);
 		mv.setViewName("grocery/show");

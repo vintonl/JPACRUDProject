@@ -23,12 +23,12 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 	}
 
 	@Override
-	public List<Grocery> findByItem(String item) {
+	public List<Grocery> findByWordSearch(String word) {
 
-		String query = "select grocery from Grocery grocery where item like :searchItem";
+		String query = "select grocery from Grocery grocery where item like :word or description like :word or store like :word";
 
-		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("searchItem", "%" + item + "%")
-				.getResultList();
+		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("word", "%" + word + "%")
+				.setParameter("word", "%" + word + "%").setParameter("word", "%" + word + "%").getResultList();
 
 		return itemsFound;
 	}

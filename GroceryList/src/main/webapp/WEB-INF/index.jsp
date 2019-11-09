@@ -12,20 +12,23 @@
 <body>
 
 	<form action="getGroceries.do" method="GET">
-		Enter item: <input type="text" name="find" /> <input
-			type="submit" value="Find Item" />
+		Search List: <input type="text" name="find"
+			placeholder="banana or Costco" /> <input type="submit"
+			value="Find Item" />
 	</form>
 	<br>
-	<h2>Grocery List:</h2>
-	<ul>
-		<c:forEach var="grocery" items="${groceries}">
-			<li>
-				<form action="getGroceries.do" method="GET">
-					<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
-				</form>
-			</li>
-			<br>
-		</c:forEach>
-	</ul>
+	<div class="container">
+		<h2>Grocery List:</h2>
+
+		<ul>
+			<c:forEach var="grocery" items="${groceries}">
+				<li><c:if test="${empty groceries }">No items on the list found</c:if>
+					<form action="getGroceries.do" method="GET">
+						<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
+					</form></li>
+				<br>
+			</c:forEach>
+		</ul>
+	</div>
 </body>
 </html>
