@@ -34,11 +34,11 @@
 				</ul>
 				<br>
 				<form action="getItemFields.do" method="GET">
-					<button type="submit" class="btn btn-light" name="itemId" value="${grocery.id}">Update
+					<button type="submit" class="btn btn-outline-light btn-md" name="itemId" value="${grocery.id}">Update
 						Item</button>
 				</form>
 				<form action="deleteItem.do" method="POST">
-					<button type="submit" class="btn btn-light" name="itemId" value="${grocery.id}">Delete
+					<button type="submit" class="btn btn-outline-light btn-md" name="itemId" value="${grocery.id}">Delete
 						Item</button>
 				</form>
 				<br>

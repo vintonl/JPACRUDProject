@@ -22,54 +22,48 @@
 		<form action="getGroceries.do" method="GET">
 			Search List: <input type="text" name="find"
 				placeholder="banana or Costco" /> <input type="submit"
-				value="Find Item" class="btn btn-light" />
+				value="Find Item" class="btn btn-outline-light btn-md" />
 		</form>
-		<a href="create.do" class="badge badge-light">Add Item</a>
-		<br>
+		<a href="create.do" class="badge badge-light">Add Item</a> <br>
 		<h3>Items to purchase:</h3>
-		<table>
-			<c:if test="${empty groceries }">No items on found</c:if>
-			<c:forEach var="grocery" items="${groceries}">
-				<tr>
-					<td><form action="getGroceries.do" method="GET">
-							<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
-						</form></td>
-
-					<td><form action="updateItemPurchased.do" method="POST">
-							<button type="submit" class="btn btn-light" name="itemId"
+		<c:if test="${empty groceries }">No items on found</c:if>
+		<c:forEach var="grocery" items="${groceries}">
+			<ul>
+				<li><form action="getGroceries.do" method="GET">
+						<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
+					</form></li>
+				<ul>
+					<li><form action="updateItemPurchased.do" method="POST">
+							<button type="submit" class="btn btn-outline-light btn-md" name="itemId"
 								value="${grocery.id}">Mark as Purchased</button>
-						</form></td>
-
-					<td><form action="getItemFields.do" method="GET">
-							<button type="submit" class="btn btn-light" name="itemId"
+						</form></li>
+					<li><form action="getItemFields.do" method="GET">
+							<button type="submit" class="btn btn-outline-light btn-md" name="itemId"
 								value="${grocery.id}">Update Item</button>
-						</form></td>
-				</tr>
-				<br>
-			</c:forEach>
-		</table>
+						</form></li>
+				</ul>
+			</ul>
+		</c:forEach>
 		<h3>Purchased items:</h3>
-		<table>
-			<c:if test="${empty purchasedGroceries }">No items found</c:if>
-			<c:forEach var="purchasedGroceries" items="${purchasedGroceries}">
-				<tr>
-					<td><form action="getGroceries.do" method="GET">
-							<a href="getGroceries.do?find=${purchasedGroceries.item }">${purchasedGroceries.item }</a>
-						</form></td>
-
-					<td><form action="updateItemAddBackToList.do" method="POST">
-							<button type="submit" class="btn btn-light" name="itemId"
+		<c:if test="${empty purchasedGroceries }">No items found</c:if>
+		<c:forEach var="purchasedGroceries" items="${purchasedGroceries}">
+			<ul>
+				<li><form action="getGroceries.do" method="GET">
+						<a href="getGroceries.do?find=${purchasedGroceries.item }">${purchasedGroceries.item }</a>
+					</form></li>
+				<ul>
+					<li><form action="updateItemAddBackToList.do" method="POST">
+							<button type="submit" class="btn btn-outline-light btn-md" name="itemId"
 								value="${purchasedGroceries.id}">Add Back</button>
-						</form></td>
+						</form></li>
 
-					<td><form action="deleteItem.do" method="POST">
-							<button type="submit" class="btn btn-light" name="itemId"
+					<li><form action="deleteItem.do" method="POST">
+							<button type="submit" class="btn btn-outline-light btn-md" name="itemId"
 								value="${purchasedGroceries.id}">Delete Item</button>
-						</form></td>
-				</tr>
-				<br>
-			</c:forEach>
-		</table>
+						</form></li>
+				</ul>
+			</ul>
+		</c:forEach>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
