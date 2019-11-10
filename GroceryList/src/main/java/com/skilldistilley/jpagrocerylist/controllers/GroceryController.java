@@ -26,13 +26,19 @@ public class GroceryController {
 		List<Grocery> groceries = groceryDao.findAll();
 		model.addAttribute("groceries", groceries);
 
+		List<Grocery> purchasedGroceries = groceryDao.findAllPurchased();
+		model.addAttribute("purchasedGroceries", purchasedGroceries);
+
 		return "/WEB-INF/index.jsp";
 	}
-	
+
 	@RequestMapping(path = "index.do")
 	public String indexPath(Model model) {
 		List<Grocery> groceries = groceryDao.findAll();
 		model.addAttribute("groceries", groceries);
+
+		List<Grocery> purchasedGroceries = groceryDao.findAllPurchased();
+		model.addAttribute("purchasedGroceries", purchasedGroceries);
 		
 		return "/WEB-INF/index.jsp";
 	}
@@ -55,7 +61,7 @@ public class GroceryController {
 
 		return "/WEB-INF/grocery/update.jsp";
 	}
-	
+
 	@RequestMapping(path = "updateItemFields.do", params = "itemId", method = RequestMethod.POST)
 	public ModelAndView updateItemFields(@RequestParam("itemId") int itemId, @Valid Grocery grocery) {
 		ModelAndView mv = new ModelAndView();
@@ -65,11 +71,21 @@ public class GroceryController {
 		mv.setViewName("index.do");
 		return mv;
 	}
-	
+
+	@RequestMapping(path = "updateItemPurchased.do", params = "itemId", method = RequestMethod.POST)
+	public ModelAndView updateItemPurchased(@RequestParam("itemId") int itemId) {
+		ModelAndView mv = new ModelAndView();
+		groceryDao.updatePurchased(itemId);
+		Grocery display = groceryDao.findById(itemId);
+		mv.addObject("grocery", display);
+		mv.setViewName("index.do");
+		return mv;
+	}
+
 	@RequestMapping(path = "deleteItem.do", params = "itemId", method = RequestMethod.POST)
 	public ModelAndView deleteFilmFromSearch(@RequestParam("itemId") int itemId) {
 		boolean delete = groceryDao.delete(itemId);
-		
+
 		if (!delete) {
 			System.out.println("************************************");
 			System.out.println("Item not deleted.");
@@ -82,7 +98,7 @@ public class GroceryController {
 		mv.setViewName("index.do");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "create.do", method = RequestMethod.GET)
 	public ModelAndView createForm(@Valid Grocery grocery) {
 		ModelAndView mv = new ModelAndView();
@@ -94,7 +110,7 @@ public class GroceryController {
 	public ModelAndView newFilm(@Valid Grocery grocery) {
 		ModelAndView mv = new ModelAndView();
 		Grocery newGrocery = groceryDao.create(grocery);
-		
+
 		mv.addObject("grocery", newGrocery);
 		mv.setViewName("index.do");
 		return mv;

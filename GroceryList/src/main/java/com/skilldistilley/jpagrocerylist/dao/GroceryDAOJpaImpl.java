@@ -34,7 +34,7 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 	}
 
 	@Override
-	public List<Grocery> findByStrore(String store) {
+	public List<Grocery> findByStore(String store) {
 		String query = "select grocery from Grocery grocery where store like :searchStore";
 
 		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("searchStore", store)
@@ -45,7 +45,14 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 
 	@Override
 	public List<Grocery> findAll() {
-		String query = "select grocery from Grocery grocery";
+		String query = "select grocery from Grocery grocery where purchased = false";
+
+		return em.createQuery(query, Grocery.class).getResultList();
+	}
+
+	@Override
+	public List<Grocery> findAllPurchased() {
+		String query = "select grocery from Grocery grocery where purchased = true";
 
 		return em.createQuery(query, Grocery.class).getResultList();
 	}
@@ -66,6 +73,20 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 		managedGrocery.setAmount(updatedGrocery.getAmount());
 		managedGrocery.setSize(updatedGrocery.getSize());
 		managedGrocery.setStore(updatedGrocery.getStore());
+
+		return managedGrocery;
+	}
+
+	@Override
+	public Grocery updatePurchased(int id) {
+		Grocery managedGrocery = em.find(Grocery.class, id);
+
+//		managedGrocery.setItem(updatedGrocery.getItem());
+//		managedGrocery.setDescription(updatedGrocery.getDescription());
+//		managedGrocery.setAmount(updatedGrocery.getAmount());
+//		managedGrocery.setSize(updatedGrocery.getSize());
+//		managedGrocery.setStore(updatedGrocery.getStore());
+		managedGrocery.setPurchased(true);
 
 		return managedGrocery;
 	}

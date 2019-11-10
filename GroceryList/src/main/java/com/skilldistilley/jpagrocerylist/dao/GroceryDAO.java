@@ -9,7 +9,7 @@ public interface GroceryDAO {
 
 	List<Grocery> findByWordSearch(String item);
 
-	List<Grocery> findByStrore(String store);
+	List<Grocery> findByStore(String store);
 
 	List<Grocery> findAll();
 
@@ -18,4 +18,8 @@ public interface GroceryDAO {
 	Grocery update(int id, Grocery grocery);
 
 	boolean delete(int id);
+
+	List<Grocery> findAllPurchased();
+
+	Grocery updatePurchased(int id);
 }

@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>The Grocery List</title>
@@ -17,29 +18,53 @@
 
 <body>
 	<div class="container">
-		<h2>The Grocery List:</h2>
+		<h2>The Grocery List</h2>
 		<form action="getGroceries.do" method="GET">
 			Search List: <input type="text" name="find"
 				placeholder="banana or Costco" /> <input type="submit"
 				value="Find Item" class="btn btn-light" />
 		</form>
 		<a href="create.do" class="badge badge-light">Add Item</a>
+		<br>
+		<h3>Items to purchase:</h3>
 		<table>
+			<c:if test="${empty groceries }">No items on found</c:if>
 			<c:forEach var="grocery" items="${groceries}">
 				<tr>
-					<c:if test="${empty groceries }">No items on the list found</c:if>
 					<td><form action="getGroceries.do" method="GET">
 							<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
 						</form></td>
 
 					<td><form action="getItemFields.do" method="GET">
-							<button type="submit" class="btn btn-light"
-								name="itemId" value="${grocery.id}">Update Item</button>
+							<button type="submit" class="btn btn-light" name="itemId"
+								value="${grocery.id}">Update Item</button>
+						</form></td>
+
+					<td><form action="updateItemPurchased.do" method="POST">
+							<button type="submit" class="btn btn-light" name="itemId"
+								value="${grocery.id}">Mark as Purchased</button>
+						</form></td>
+				</tr>
+				<br>
+			</c:forEach>
+		</table>
+		<h3>Purchased items:</h3>
+		<table>
+			<c:if test="${empty purchasedGroceries }">No items found</c:if>
+			<c:forEach var="purchasedGroceries" items="${purchasedGroceries}">
+				<tr>
+					<td><form action="getGroceries.do" method="GET">
+							<a href="getGroceries.do?find=${purchasedGroceries.item }">${purchasedGroceries.item }</a>
+						</form></td>
+
+					<td><form action="getItemFields.do" method="GET">
+							<button type="submit" class="btn btn-light" name="itemId"
+								value="${purchasedGroceries.id}">Update Item</button>
 						</form></td>
 
 					<td><form action="deleteItem.do" method="POST">
-							<button type="submit" class="btn btn-light"
-								name="itemId" value="${grocery.id}">Delete Item</button>
+							<button type="submit" class="btn btn-light" name="itemId"
+								value="${purchasedGroceries.id}">Delete Item</button>
 						</form></td>
 				</tr>
 				<br>
