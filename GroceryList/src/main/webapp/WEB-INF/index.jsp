@@ -35,14 +35,14 @@
 							<a href="getGroceries.do?find=${grocery.item }">${grocery.item }</a>
 						</form></td>
 
-					<td><form action="getItemFields.do" method="GET">
-							<button type="submit" class="btn btn-light" name="itemId"
-								value="${grocery.id}">Update Item</button>
-						</form></td>
-
 					<td><form action="updateItemPurchased.do" method="POST">
 							<button type="submit" class="btn btn-light" name="itemId"
 								value="${grocery.id}">Mark as Purchased</button>
+						</form></td>
+
+					<td><form action="getItemFields.do" method="GET">
+							<button type="submit" class="btn btn-light" name="itemId"
+								value="${grocery.id}">Update Item</button>
 						</form></td>
 				</tr>
 				<br>
@@ -57,9 +57,9 @@
 							<a href="getGroceries.do?find=${purchasedGroceries.item }">${purchasedGroceries.item }</a>
 						</form></td>
 
-					<td><form action="getItemFields.do" method="GET">
+					<td><form action="updateItemAddBackToList.do" method="POST">
 							<button type="submit" class="btn btn-light" name="itemId"
-								value="${purchasedGroceries.id}">Update Item</button>
+								value="${purchasedGroceries.id}">Add Back</button>
 						</form></td>
 
 					<td><form action="deleteItem.do" method="POST">

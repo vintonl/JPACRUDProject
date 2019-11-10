@@ -22,4 +22,6 @@ public interface GroceryDAO {
 	List<Grocery> findAllPurchased();
 
 	Grocery updatePurchased(int id);
+
+	Grocery updateAddBackToList(int id);
 }

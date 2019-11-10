@@ -81,12 +81,16 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 	public Grocery updatePurchased(int id) {
 		Grocery managedGrocery = em.find(Grocery.class, id);
 
-//		managedGrocery.setItem(updatedGrocery.getItem());
-//		managedGrocery.setDescription(updatedGrocery.getDescription());
-//		managedGrocery.setAmount(updatedGrocery.getAmount());
-//		managedGrocery.setSize(updatedGrocery.getSize());
-//		managedGrocery.setStore(updatedGrocery.getStore());
 		managedGrocery.setPurchased(true);
+
+		return managedGrocery;
+	}
+
+	@Override
+	public Grocery updateAddBackToList(int id) {
+		Grocery managedGrocery = em.find(Grocery.class, id);
+
+		managedGrocery.setPurchased(false);
 
 		return managedGrocery;
 	}

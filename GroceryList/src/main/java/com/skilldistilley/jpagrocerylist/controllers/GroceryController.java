@@ -81,6 +81,16 @@ public class GroceryController {
 		mv.setViewName("index.do");
 		return mv;
 	}
+	
+	@RequestMapping(path = "updateItemAddBackToList.do", params = "itemId", method = RequestMethod.POST)
+	public ModelAndView updateItemAddBackToList(@RequestParam("itemId") int itemId) {
+		ModelAndView mv = new ModelAndView();
+		groceryDao.updateAddBackToList(itemId);
+		Grocery display = groceryDao.findById(itemId);
+		mv.addObject("grocery", display);
+		mv.setViewName("index.do");
+		return mv;
+	}
 
 	@RequestMapping(path = "deleteItem.do", params = "itemId", method = RequestMethod.POST)
 	public ModelAndView deleteFilmFromSearch(@RequestParam("itemId") int itemId) {
