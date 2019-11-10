@@ -21,7 +21,7 @@
 	<div class="container">
 		<br> <br> <br>
 		<h4>Items to purchase:</h4>
-		<c:if test="${empty groceries }">No items on found</c:if>
+		<c:if test="${empty groceries }">No items found</c:if>
 		<c:forEach var="grocery" items="${groceries}">
 			<ul>
 				<li><form action="getGroceries.do" method="GET">
