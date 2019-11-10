@@ -35,18 +35,19 @@
 					<li>Buy at: ${grocery.store}</li>
 				</ul>
 				<br>
+				<form action="updateItemPurchased.do" method="POST">
+					<button type="submit" class="btn btn-outline-light btn-md"
+						name="itemId" value="${grocery.id}">Mark as Purchased</button>
+				</form>
 				<form action="getItemFields.do" method="GET">
 					<button type="submit" class="btn btn-outline-light btn-md"
 						name="itemId" value="${grocery.id}">Update Item</button>
 				</form>
-				<form action="deleteItem.do" method="POST">
-					<button type="submit" class="btn btn-outline-light btn-md"
-						name="itemId" value="${grocery.id}">Delete Item</button>
-				</form>
 				<br>
 			</c:forEach>
 		</ol>
-		<a href="index.do" class="badge badge-light">Return Home</a>
+		<a href="index.do" class="badge badge-light">Return Home</a> <br>
+		<br> <br>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
