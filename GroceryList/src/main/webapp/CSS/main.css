@@ -5,7 +5,7 @@ body {
 	color: white;
 }
 
-h1, h2, h3, h4, h5, form, a, ul{
+h1, h2, h3, h4, h5, form, a, ul {
 	color: white;
 }
 
@@ -25,6 +25,10 @@ table, th, td {
 }
 
 li {
-    list-style-type: none;
-    color: white;
+	list-style-type: none;
+	color: white;
+}
+
+a:hover {
+	color: #00FF00;
 }
