@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@include file="nav.jsp" %>
 <title>Add Item</title>
 
 <link rel="stylesheet"
@@ -19,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1>Add an item:</h1>
+	<h4>Add an item:</h4>
 		<form:form action="createItem.do" method="POST"
 			modelAttribute="grocery">
 

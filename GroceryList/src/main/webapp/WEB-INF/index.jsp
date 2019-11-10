@@ -7,6 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
+<%@include file="nav.jsp" %>
 <title>The Grocery List</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -18,14 +19,14 @@
 
 <body>
 	<div class="container">
-		<h2>The Grocery List</h2>
+		<!-- <h2>The Grocery List</h2>
 		<form action="getGroceries.do" method="GET">
 			Search List: <input type="text" name="find"
 				placeholder="banana or Costco" /> <input type="submit"
 				value="Find Item" class="btn btn-outline-light btn-md" />
 		</form>
-		<a href="create.do" class="badge badge-light">Add Item</a> <br>
-		<h3>Items to purchase:</h3>
+		<a href="create.do" class="badge badge-light">Add Item</a> <br> -->
+		<h4>Items to purchase:</h4>
 		<c:if test="${empty groceries }">No items on found</c:if>
 		<c:forEach var="grocery" items="${groceries}">
 			<ul>
@@ -44,7 +45,7 @@
 				</ul>
 			</ul>
 		</c:forEach>
-		<h3>Purchased items:</h3>
+		<h4>Purchased items:</h4>
 		<c:if test="${empty purchasedGroceries }">No items found</c:if>
 		<c:forEach var="purchasedGroceries" items="${purchasedGroceries}">
 			<ul>

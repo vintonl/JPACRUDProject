@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@include file="nav.jsp" %>
 <title>Search Result(s)</title>
 
 <link rel="stylesheet"
@@ -17,9 +18,9 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Search Result(s):</h2>
+		<h4>Search Result(s):</h4>
 		<c:if test="${empty groceries }">
-			<h4>No items found</h4>
+			<h5>No items found</h5>
 		</c:if>
 		<ol>
 			<c:forEach var="grocery" items="${groceries}">

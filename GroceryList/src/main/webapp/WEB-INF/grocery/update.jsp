@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@include file="nav.jsp" %>
 <title>Update Item</title>
 
 <link rel="stylesheet"
@@ -19,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1>Edit an item</h1>
+	<h4>Edit an item</h4>
 		<c:out value="${itemId }" />
 		<c:if test="${not empty grocery }">
 
