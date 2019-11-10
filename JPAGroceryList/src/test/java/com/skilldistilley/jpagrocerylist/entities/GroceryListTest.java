@@ -57,7 +57,7 @@ class GroceryListTest {
 	@Test
 	@DisplayName("Test Description")
 	void test2() {
-		assertEquals("yellow ones", gl.getDescription());
+		assertEquals("yellow ones, not GREEN!", gl.getDescription());
 	}
 
 	@Test
@@ -76,6 +76,11 @@ class GroceryListTest {
 	@DisplayName("Test getStore")
 	void test5() {
 		assertEquals("Costco", gl.getStore());
+	}
+	@Test
+	@DisplayName("Test isPurchased")
+	void test6() {
+		assertEquals(false, gl.isPurchased());
 	}
 
 }

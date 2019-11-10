@@ -16,6 +16,7 @@ public class Grocery {
 	private int amount;
 	private String size;
 	private String store;
+	private boolean purchased;
 
 	public Grocery() {
 		super();
@@ -80,6 +81,14 @@ public class Grocery {
 		this.store = store;
 	}
 
+	public boolean isPurchased() {
+		return purchased;
+	}
+
+	public void setPurchased(boolean purchased) {
+		this.purchased = purchased;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,6 +97,7 @@ public class Grocery {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((item == null) ? 0 : item.hashCode());
+		result = prime * result + (purchased ? 1231 : 1237);
 		result = prime * result + ((size == null) ? 0 : size.hashCode());
 		result = prime * result + ((store == null) ? 0 : store.hashCode());
 		return result;
@@ -116,6 +126,8 @@ public class Grocery {
 				return false;
 		} else if (!item.equals(other.item))
 			return false;
+		if (purchased != other.purchased)
+			return false;
 		if (size == null) {
 			if (other.size != null)
 				return false;
@@ -132,7 +144,7 @@ public class Grocery {
 	@Override
 	public String toString() {
 		return "Grocery [id=" + id + ", item=" + item + ", description=" + description + ", amount=" + amount
-				+ ", size=" + size + ", store=" + store + "]";
+				+ ", size=" + size + ", store=" + store + ", purchased=" + purchased + "]";
 	}
 
 }
