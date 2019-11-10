@@ -25,7 +25,7 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 	@Override
 	public List<Grocery> findByWordSearch(String word) {
 
-		String query = "select grocery from Grocery grocery where item like :word or description like :word or store like :word";
+		String query = "select grocery from Grocery grocery where grocery.item like :word or grocery.description like :word or grocery.store like :word order by grocery.item";
 
 		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("word", "%" + word + "%")
 				.setParameter("word", "%" + word + "%").setParameter("word", "%" + word + "%").getResultList();
@@ -34,25 +34,15 @@ public class GroceryDAOJpaImpl implements GroceryDAO {
 	}
 
 	@Override
-	public List<Grocery> findByStore(String store) {
-		String query = "select grocery from Grocery grocery where store like :searchStore";
-
-		List<Grocery> itemsFound = em.createQuery(query, Grocery.class).setParameter("searchStore", store)
-				.getResultList();
-
-		return itemsFound;
-	}
-
-	@Override
 	public List<Grocery> findAll() {
-		String query = "select grocery from Grocery grocery where purchased = false";
+		String query = "select grocery from Grocery grocery where grocery.purchased = false order by grocery.item";
 
 		return em.createQuery(query, Grocery.class).getResultList();
 	}
 
 	@Override
 	public List<Grocery> findAllPurchased() {
-		String query = "select grocery from Grocery grocery where purchased = true";
+		String query = "select grocery from Grocery grocery where grocery.purchased = true order by grocery.item";
 
 		return em.createQuery(query, Grocery.class).getResultList();
 	}

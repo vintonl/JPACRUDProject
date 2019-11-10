@@ -9,8 +9,6 @@ public interface GroceryDAO {
 
 	List<Grocery> findByWordSearch(String item);
 
-	List<Grocery> findByStore(String store);
-
 	List<Grocery> findAll();
 
 	Grocery create(Grocery grocery);
