@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<%@include file="nav.jsp" %>
+<%@include file="nav.jsp"%>
 <title>Search Result(s)</title>
 
 <link rel="stylesheet"
@@ -18,6 +18,7 @@
 </head>
 <body>
 	<div class="container">
+		<br> <br> <br>
 		<h4>Search Result(s):</h4>
 		<c:if test="${empty groceries }">
 			<h5>No items found</h5>
@@ -35,17 +36,17 @@
 				</ul>
 				<br>
 				<form action="getItemFields.do" method="GET">
-					<button type="submit" class="btn btn-outline-light btn-md" name="itemId" value="${grocery.id}">Update
-						Item</button>
+					<button type="submit" class="btn btn-outline-light btn-md"
+						name="itemId" value="${grocery.id}">Update Item</button>
 				</form>
 				<form action="deleteItem.do" method="POST">
-					<button type="submit" class="btn btn-outline-light btn-md" name="itemId" value="${grocery.id}">Delete
-						Item</button>
+					<button type="submit" class="btn btn-outline-light btn-md"
+						name="itemId" value="${grocery.id}">Delete Item</button>
 				</form>
 				<br>
 			</c:forEach>
 		</ol>
-	<a href="index.do" class="badge badge-light">Return Home</a>
+		<a href="index.do" class="badge badge-light">Return Home</a>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

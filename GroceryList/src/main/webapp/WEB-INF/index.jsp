@@ -19,13 +19,7 @@
 
 <body>
 	<div class="container">
-		<!-- <h2>The Grocery List</h2>
-		<form action="getGroceries.do" method="GET">
-			Search List: <input type="text" name="find"
-				placeholder="banana or Costco" /> <input type="submit"
-				value="Find Item" class="btn btn-outline-light btn-md" />
-		</form>
-		<a href="create.do" class="badge badge-light">Add Item</a> <br> -->
+		<br> <br> <br>
 		<h4>Items to purchase:</h4>
 		<c:if test="${empty groceries }">No items on found</c:if>
 		<c:forEach var="grocery" items="${groceries}">

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@include file="nav.jsp" %>
+<%@include file="nav.jsp"%>
 <title>Update Item</title>
 
 <link rel="stylesheet"
@@ -20,7 +20,8 @@
 </head>
 <body>
 	<div class="container">
-	<h4>Edit an item</h4>
+		<br> <br> <br>
+		<h4>Edit an item</h4>
 		<c:out value="${itemId }" />
 		<c:if test="${not empty grocery }">
 
@@ -51,19 +52,20 @@
 				<form:label path="store">Store to by item at: </form:label>
 				<form:select path="store">
 					<form:option value="Costco">Costco</form:option>
-					<form:option value="Trader-Joe's">Trader-Joe's</form:option>
 					<form:option value="King Soopers">King Soopers</form:option>
 					<form:option value="Sprouts">Sprouts</form:option>
+					<form:option value="Target">Target</form:option>
+					<form:option value="Trader-Joe's">Trader-Joe's</form:option>
 					<form:option value="Whole Foods">Whole Foods</form:option>
 					<form:option value="Not listed">Another store not listed</form:option>
 				</form:select>
 				<br>
 
-				<button type="submit" name="itemId" value="${grocery.id}" class="btn btn-outline-light btn-md">Update
-					Item</button>
+				<button type="submit" name="itemId" value="${grocery.id}"
+					class="btn btn-outline-light btn-md">Update Item</button>
 			</form:form>
 		</c:if>
-		<br /> <a href="index.do" class="badge badge-light">Cancel and/or Return Home</a>
+		<br /> <a href="index.do" class="badge badge-light">Cancel</a>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
