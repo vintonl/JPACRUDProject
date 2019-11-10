@@ -2,7 +2,7 @@
 
 ### Week 9 Weekend Project at Skill Distillery
 
-Built by Vinton Lee. [Assignment](https://github.com/vintonl/JPACRUDProject/blob/master/Assignment.md)
+Built by Vinton Lee for this [assignment](https://github.com/vintonl/JPACRUDProject/blob/master/Assignment.md).
 
 ### Overview:
 
